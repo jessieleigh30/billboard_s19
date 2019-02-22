@@ -1,5 +1,5 @@
 class ChartsController < ApplicationController
-  before_action :set_chart, only: [:show, :destroy]
+  before_action :set_chart, only: [:show, :destroy, :edit, :update]
 
   def index
     @charts = Chart.all
@@ -10,6 +10,7 @@ class ChartsController < ApplicationController
 
   def new
     @chart = Chart.new
+    render partial: "form"
   end
 
   def create
@@ -17,13 +18,25 @@ class ChartsController < ApplicationController
     if @chart.save
       redirect_to @chart
     else
-      render :new
+      render partial: "form"
     end
   end
 
   def destroy
      @chart.destroy
     redirect_to chart_path
+  end
+
+  def edit
+    render partial: "form"
+  end
+
+  def update
+    if @chart.update(chart_params)
+      redirect_to @chart
+    else
+      render partial: "form"
+    end
   end
 
   private
@@ -35,4 +48,5 @@ class ChartsController < ApplicationController
   def chart_params
     params.require(:chart).permit(:name)
   end
+
 end
