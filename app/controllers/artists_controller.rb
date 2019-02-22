@@ -11,11 +11,12 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = Artist.new
+    render partial: "form"
   end
 
   def create
     @artist = Artist.new(artist_params)
-    if @user.save
+    if @artist.save
       redirect_to @artist
     else  
       render :new
@@ -25,6 +26,14 @@ class ArtistsController < ApplicationController
   def destroy
     @artist.destroy
     redirect_to artists_path
+  end
+
+  def update
+    if @artist.update(artist_params)
+      redirect_to @artists
+    else
+      render partial: "form"
+    end
   end
 
   private

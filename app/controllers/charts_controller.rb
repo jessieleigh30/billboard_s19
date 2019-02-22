@@ -14,7 +14,7 @@ class ChartsController < ApplicationController
   end
 
   def create
-    @chart = Chart,new(chart_params)
+    @chart = Chart.new(chart_params)
     if @chart.save
       redirect_to @chart
     else
@@ -24,7 +24,7 @@ class ChartsController < ApplicationController
 
   def destroy
      @chart.destroy
-    redirect_to chart_path
+    redirect_to @chart
   end
 
   def edit
