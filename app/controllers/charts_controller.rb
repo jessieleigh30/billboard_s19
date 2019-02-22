@@ -16,7 +16,7 @@ class ChartsController < ApplicationController
   def create
     @chart = Chart.new(chart_params)
     if @chart.save
-      redirect_to @chart
+      redirect_to charts_path
     else
       render partial: "form"
     end

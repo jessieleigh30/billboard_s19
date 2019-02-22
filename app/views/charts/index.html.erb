@@ -3,7 +3,7 @@
 <%= link_to "Explore Artists", artists_path %>
 
  <% @charts.each do |chart| %>
-      <h5><%= link_to chart.name, chart_path(chart) %></h5>
+      <h3><%= link_to chart.name, chart_path(chart) %></h3>
     <% end %> 
 
 <%= link_to 'Add New Chart', new_chart_path %>
