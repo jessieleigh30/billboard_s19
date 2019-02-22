@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'chart#index'
+  root 'charts#index'
 
   resources :artists
   resources :charts
