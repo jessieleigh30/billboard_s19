@@ -2,8 +2,9 @@
 
 
 <% @chart.songs.each do |song| %>
-  <h4><%=link_to song.title, chart_song_path(song) %></h4>
+  <h4><%=link_to song.title, chart_song_path(@chart, song) %></h4>
 <% end %>
 
 <%= link_to 'Edit Chart', edit_chart_path%>
 <%= link_to 'Delete Chart', chart_path(@chart), method: :delete%>
+<%= link_to 'Add New Song',new_chart_song_path(@chart) %>
