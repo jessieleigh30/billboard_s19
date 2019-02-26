@@ -24,6 +24,24 @@ class SongsController < ApplicationController
     end
   end
 
+  def create
+    @song = Song.new(song_params)
+      if @song.save
+        redirect_to chart_song_path
+      else
+        render partial: "form"
+      end
+  end
+
+  def edit
+    render partial: 'form'
+  end
+
+  def destroy
+    @song.destroy
+    redirect_to @chart
+  end
+
   private
 
   def set_song
@@ -31,11 +49,14 @@ class SongsController < ApplicationController
   end
 
   def set_artist
-    @artist = Artist.find(params[:id])
+    @artist = Artist.find(params[:artist_id])
   end
 
   def set_chart
     @chart = Chart.find(params[:chart_id])
   end
 
+  def song_params
+    params.require(:song).permit(:title)
+  end
 end

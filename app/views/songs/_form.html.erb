@@ -1,9 +1,9 @@
 <h1> Add New Song </h1>
 
 <h1><%= @song.id ? 'Edit Song' : 'Add Song' %></h1>
-<%= form_for @song do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for [@chart, @song] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
   
   <%= f.submit %>
