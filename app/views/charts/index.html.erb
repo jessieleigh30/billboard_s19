@@ -1,12 +1,21 @@
+<div class="charts-container">
 <h1>Top Music Charts</h1>
 
 
 <h2>Welcome <%= current_user.first_name %></h2>
 
-<%= link_to "Explore Artists", artists_path %>
 
- <% @charts.each do |chart| %>
-      <h3><%= link_to chart.name, chart_path(chart) %></h3>
-    <% end %> 
+<%= link_to "Explore Artists", artists_path, class: "btn black" %>
 
-<%= link_to 'Add New Chart', new_chart_path %>
+<div class="chart">
+
+  <% @charts.each do |chart| %>
+  
+        <h5><%= link_to chart.name, chart_path(chart) %></h5>
+   
+     <% end %> 
+
+
+  <%= link_to 'Add New Chart', new_chart_path, class:"btn index-button" %>
+  </>
+</div>

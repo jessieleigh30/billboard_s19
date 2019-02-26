@@ -1,2 +1,8 @@
-@import "semantic-ui"
+@import "semantic-ui";
+@import "charts";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
